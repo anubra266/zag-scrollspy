@@ -12,5 +12,6 @@
   "license": "ISC",
   "devDependencies": {
     "tsup": "^8.3.5"
-  }
+  },
+  "packageManager": "pnpm@9.15.0"
 }
