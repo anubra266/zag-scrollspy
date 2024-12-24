@@ -1,0 +1,16 @@
+{
+  "name": "zag-scrollspy",
+  "version": "0.0.0",
+  "description": "Simple Agnostic Scrollspy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "site": "pnpm --filter=./site"
+  },
+  "keywords": [],
+  "author": "anubra266",
+  "license": "ISC",
+  "devDependencies": {
+    "tsup": "^8.3.5"
+  }
+}

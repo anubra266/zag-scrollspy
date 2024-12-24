@@ -1,0 +1,42 @@
+{
+  "name": "zag-scrollspy",
+  "version": "0.0.0",
+  "description": "Core logic for the scrollspy widget implemented as a state machine",
+  "keywords": [
+    "js",
+    "machine",
+    "xstate",
+    "statechart",
+    "component",
+    "zag-js",
+    "scrollspy"
+  ],
+  "author": "Abraham Aremu <anubra266@gmail.com>",
+  "homepage": "https://github.com/anubra266/zag-scrollspy#readme",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "repository": "https://github.com/anubra266/zag-scrollspy/tree/main/packages/zag-scrollspy",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/anubra266i/zag-scrollspy/issues"
+  },
+  "dependencies": {
+    "@zag-js/anatomy": "latest",
+    "@zag-js/core": "latest",
+    "@zag-js/dom-query": "latest",
+    "@zag-js/types": "latest",
+    "@zag-js/utils": "latest"
+  }
+}
