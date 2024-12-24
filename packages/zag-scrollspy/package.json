@@ -1,6 +1,6 @@
 {
   "name": "zag-scrollspy",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Core logic for the scrollspy widget implemented as a state machine",
   "keywords": [
     "js",
