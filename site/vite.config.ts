@@ -9,4 +9,8 @@ export default defineConfig({
       "top-level-await": true, //browsers can handle top-level-await features
     },
   },
+  base: "./",
+  build: {
+    outDir: "site-build",
+  },
 });
