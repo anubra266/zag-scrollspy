@@ -40,7 +40,8 @@
     "@zag-js/core": "latest",
     "@zag-js/dom-query": "latest",
     "@zag-js/types": "latest",
-    "@zag-js/utils": "latest"
+    "@zag-js/utils": "latest",
+    "typescript": "~5.6.2"
   },
   "devDependencies": {
     "clean-package": "2.2.0"

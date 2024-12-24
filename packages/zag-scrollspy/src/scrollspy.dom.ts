@@ -1,4 +1,3 @@
-import { createScope } from "@zag-js/dom-query"
-import type { MachineContext as Ctx } from "./scrollspy.types"
+import { createScope } from "@zag-js/dom-query";
 
-export const dom = createScope({})
+export const dom = createScope({});
