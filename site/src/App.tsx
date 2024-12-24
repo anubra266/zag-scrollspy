@@ -58,6 +58,30 @@ function App() {
           </section>
         ))}
       </main>
+
+      <footer className="py-20 px-20 text-center text-gray-500 text-lg tracking-widest">
+        <span>
+          With ❤️ from{" "}
+          <a
+            target="_blank"
+            href="https://anubra266.dev"
+            rel="noreferrer"
+            className="text-gray-500 hover:text-gray-600 border-b border-cyan-400"
+          >
+            @anubra266
+          </a>
+        </span>
+        <div className="mt-4">
+          <a
+            href="https://github.com/anubra266/zag-scrollspy/"
+            target="_blank"
+            rel="noreferrer"
+            className="text-gray-500 hover:text-gray-600 border-b border-cyan-400 px-1"
+          >
+            GitHub
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }
