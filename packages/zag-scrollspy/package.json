@@ -24,6 +24,7 @@
   "scripts": {
     "build": "tsup",
     "lint": "eslint src",
+    "test": "echo \"No test specified\"",
     "typecheck": "tsc --noEmit"
   },
   "publishConfig": {
