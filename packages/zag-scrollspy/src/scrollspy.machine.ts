@@ -27,7 +27,6 @@ export function machine<V extends string>(userContext: UserDefinedContext<V>) {
       },
 
       activities: ["trackItemsPresence"],
-
       states: {
         idle: {
           on: {
@@ -43,48 +42,44 @@ export function machine<V extends string>(userContext: UserDefinedContext<V>) {
         trackItemsPresence: (ctx) => {
           const win = dom.getWin(ctx);
 
+          const handleIntersect = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry) => {
+              const id = entry.target.getAttribute("id");
+              const el = ctx.elements.find((el) => el.id === id);
+
+              if (el)
+                el.ratio = entry.isIntersecting ? entry.intersectionRatio : 0;
+            });
+
+            const maxRatio = Math.max(
+              ...ctx.elements.map((el) => el.ratio),
+              0.1
+            );
+
+            const entry = ctx.elements.find((el) => el.ratio === maxRatio);
+
+            ctx.activeId = entry ? entry.id : null;
+            ctx.onChangeActiveId?.(ctx.activeId);
+          };
+
+          const observerOpts = {
+            root: ctx.root,
+            threshold: ctx.threshold,
+            rootMargin: ctx.rootMargin,
+          };
           const observer = new win.IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                const id = entry.target.getAttribute("id");
-                const el = ctx.elements.find((el) => el.id === id);
-                if (el) {
-                  const ratio = entry.isIntersecting
-                    ? entry.intersectionRatio
-                    : 0;
-                  ctx.elements = ctx.elements.map((el) =>
-                    el.id === id ? { ...el, ratio } : el
-                  );
-                }
-              });
-
-              const maxRatio = Math.max(
-                ...ctx.elements.map((el) => el.ratio),
-                0.1
-              );
-              const entry = ctx.elements.find((el) => el.ratio === maxRatio);
-
-              if (ctx.activeId !== entry?.id) {
-                ctx.activeId = entry ? entry.id : null;
-                ctx.onChangeActiveId?.(ctx.activeId);
-              }
-            },
-            {
-              root: ctx.root,
-              rootMargin: ctx.rootMargin,
-              threshold: ctx.threshold,
-            }
+            handleIntersect,
+            observerOpts
           );
 
-          ctx.elements.forEach(({ id }) => {
-            const content = dom.getById(ctx, id);
-            if (content) observer.observe(content);
-          });
+          for (const { id } of ctx.elements) {
+            const content = document.getElementById(id);
+            content && observer.observe(content);
+          }
 
           return () => observer.disconnect();
         },
       },
-      guards: {},
       actions: {
         handleClick: (ctx, e) => {
           const content = dom.getById(ctx, e.id);

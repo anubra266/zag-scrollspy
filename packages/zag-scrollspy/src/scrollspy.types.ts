@@ -18,7 +18,7 @@ interface PublicContext<V extends string>
    */
   ids?: ElementIds | undefined;
   /**
-   * The ids of items to be used as the scrollspy targets
+   * The ids of items to be used as the scrollspy targets.
    */
   items: V[];
   /**
@@ -60,6 +60,7 @@ interface PublicContext<V extends string>
 }
 
 interface PrivateContext<V extends string = string> {
+  // elements: Record<string, number>;
   elements: { id: V; ratio: number }[];
   activeId: V | null;
 }
