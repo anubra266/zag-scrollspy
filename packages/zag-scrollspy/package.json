@@ -1,6 +1,6 @@
 {
   "name": "zag-scrollspy",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Core logic for the scrollspy widget implemented as a state machine",
   "keywords": [
     "js",
@@ -18,8 +18,7 @@
   "repository": "https://github.com/anubra266/zag-scrollspy/tree/main/packages/zag-scrollspy",
   "sideEffects": false,
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "scripts": {
     "build": "tsup",
