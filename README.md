@@ -50,3 +50,6 @@ yarn add zag-scrollspy
 pnpm add zag-scrollspy
 ```
 
+## Usage
+
+Find more info in [Docs](anubra266.github.io/zag-scrollspy/)
