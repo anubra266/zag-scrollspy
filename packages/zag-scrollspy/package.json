@@ -1,6 +1,6 @@
 {
   "name": "zag-scrollspy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Core logic for the scrollspy widget implemented as a state machine",
   "keywords": [
     "js",
@@ -24,7 +24,9 @@
     "build": "tsup",
     "lint": "eslint src",
     "test": "echo \"No test specified\"",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
   },
   "publishConfig": {
     "access": "public"
@@ -32,11 +34,15 @@
   "bugs": {
     "url": "https://github.com/anubra266i/zag-scrollspy/issues"
   },
+  "clean-package": "./clean-package.config.json",
   "dependencies": {
     "@zag-js/anatomy": "latest",
     "@zag-js/core": "latest",
     "@zag-js/dom-query": "latest",
     "@zag-js/types": "latest",
     "@zag-js/utils": "latest"
+  },
+  "devDependencies": {
+    "clean-package": "2.2.0"
   }
 }
