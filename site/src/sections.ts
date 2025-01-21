@@ -118,22 +118,22 @@ export const sections = [
     backgroundColor: "bg-yellow-50",
     subSections: [
       {
-        id: "react",
+        id: "react-usage",
         title: "React Usage",
         content: "```jsx\n" + reactUsage,
       },
       {
-        id: "solid",
+        id: "solid-usage",
         title: "Solid js Usage",
         content: "```jsx\n" + solidUsage,
       },
       {
-        id: "vue",
+        id: "vue-usage",
         title: "Vue Usage",
         content: "```js\n" + vueUsage,
       },
       {
-        id: "svelte",
+        id: "svelte-usage",
         title: "Svelte Usage",
         content: "```js\n" + svelteUsage,
       },
