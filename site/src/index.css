@@ -35,8 +35,32 @@ html {
   * {
     /* @apply border-border; */
   }
+
   body {
     /* @apply bg-background text-foreground; */
   }
 }
 
+.nav-item {
+  @apply px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-colors duration-200 cursor-pointer;
+}
+
+.nav-item.active {
+  @apply bg-primary-bg dark:bg-gray-800 text-primary dark:text-primary-light rounded-lg font-medium;
+}
+
+.section-card {
+  @apply bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-700 p-8 transition-all duration-300 shadow-sm;
+}
+
+.code-block {
+  @apply bg-gray-50 dark:bg-gray-800 rounded-lg p-4 font-mono text-sm;
+}
+
+.tab-button {
+  @apply px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-colors duration-200 cursor-pointer;
+}
+
+.tab-button.active {
+  @apply bg-primary-bg dark:bg-gray-800 text-primary dark:text-primary-light rounded-lg;
+}
