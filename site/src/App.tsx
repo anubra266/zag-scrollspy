@@ -1,8 +1,9 @@
 import { normalizeProps, useMachine } from '@zag-js/react';
-import { Sprout, Terminal } from 'lucide-react';
+import { Moon, Sprout, Sun, Terminal } from 'lucide-react';
 import { useId } from 'react';
 import * as scrollspy from 'zag-scrollspy';
 import Markdown from './components/markdown';
+import { useTheme } from './hooks/use-theme';
 import { cn } from './lib/utils';
 import { sections } from './sections';
 
@@ -16,6 +17,8 @@ function App() {
   );
 
   const api = scrollspy.connect(state, send, normalizeProps);
+  const { darkMode, toggleDarkMode } = useTheme();
+
   return (
     <div className='min-h-screen bg-gradient-to-b from-primary-bg to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-200'>
       <nav className='sticky top-0 bg-white py-4 px-20 border-gray-200 border-b dark:border-gray-700 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm w-full z-50'>
@@ -38,6 +41,18 @@ function App() {
               {section.title}
             </a>
           ))}
+          <button
+            type='button'
+            onClick={toggleDarkMode}
+            className='p-2 text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary-light transition-colors duration-200'
+            aria-label='Toggle dark mode'
+          >
+            {darkMode ? (
+              <Sun className='w-5 h-5' />
+            ) : (
+              <Moon className='w-5 h-5' />
+            )}
+          </button>
         </div>
       </nav>
 
