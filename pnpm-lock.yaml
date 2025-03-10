@@ -16,19 +16,19 @@ importers:
     dependencies:
       '@zag-js/anatomy':
         specifier: latest
-        version: 0.79.0
+        version: 1.3.2
       '@zag-js/core':
         specifier: latest
-        version: 0.79.0
+        version: 1.3.2
       '@zag-js/dom-query':
         specifier: latest
-        version: 0.79.0
+        version: 1.3.2
       '@zag-js/types':
         specifier: latest
-        version: 0.79.0
+        version: 1.3.2
       '@zag-js/utils':
         specifier: latest
-        version: 0.79.0
+        version: 1.3.2
       typescript:
         specifier: ~5.6.2
         version: 5.6.3
@@ -654,14 +654,17 @@ packages:
     peerDependencies:
       vite: ^4.2.0 || ^5.0.0 || ^6.0.0
 
-  '@zag-js/anatomy@0.79.0':
-    resolution: {integrity: sha512-vuBPW8FTf39ds2ntY8jczNiWadWOguiAYVmnzhziKIVBaYWShPFmCTRvGaBbgg/IrGSVN79xNqlkUN+6QdDC3Q==}
+  '@zag-js/anatomy@1.3.2':
+    resolution: {integrity: sha512-FDr4ifWfTQBU5ogf8eG+sWEzvzMFObUDqYTuXKSHGTnoMVvSYVZ0ZM2/OZ11NBqTd61UPh4pPcptWjy/AxdiYA==}
 
   '@zag-js/core@0.79.0':
     resolution: {integrity: sha512-HMEpXGNXcDPwRiik0KSflSKx9zOWvDflbuaqWaEdO0sSe+Znt6F9US/inlw/1L81YHPeY64d2rAtxyaYsP6E1Q==}
 
-  '@zag-js/dom-query@0.79.0':
-    resolution: {integrity: sha512-FquyVhkDVYL5pVKwcGxfWWmX6km2CrPTVzYmY5pwvhEv2nUhDsKbg3ZlIKhPqugusNDLofdqPtWxBZ68R1/94w==}
+  '@zag-js/core@1.3.2':
+    resolution: {integrity: sha512-jeBCguBpj68j8Dm6cpnYiMJow3nHzIQInNfmAx4dNPZDiuU0Y8q3D90Nxxd53YqJIq3SqtyHy/XYG6DuaADG0g==}
+
+  '@zag-js/dom-query@1.3.2':
+    resolution: {integrity: sha512-p51d1YbJEW7ABZwI5tADKJMRBhlZs6qJnOb8kngacToOXFOWdS4hdsz3h8VYnLSw+R/ea3T28FrqFmLIg9x6gA==}
 
   '@zag-js/react@0.79.0':
     resolution: {integrity: sha512-8zttizIrNqCHDFbW79g2s0hbaU8ZLtGi/OGXWQYTnIQi1kqIuLKVEgzcMaY0vqejHlnM0IzY0W3QdvcaXSyOFQ==}
@@ -675,8 +678,14 @@ packages:
   '@zag-js/types@0.79.0':
     resolution: {integrity: sha512-zFJBZeKM0inoX9XqdQ+L8gSRabqlimWim4vR4WzDMBDbSTaHFsEqjgb6xnYZwXsO4A3rjKRkaRJKaXv522aBmQ==}
 
+  '@zag-js/types@1.3.2':
+    resolution: {integrity: sha512-Y4wALi3/evUSBHCwmwUTlT9dH49hj3hBcsgfUwvap6/1LrMhK+LoKOqfd2rPe0vXneJ931Ax28eBwHjqueEhew==}
+
   '@zag-js/utils@0.79.0':
     resolution: {integrity: sha512-IdZkdVgbdt6h2/1u2WKm2HIrb9pHVVOkudOb4XlQPuBu8FVxle2ANoJAoGYvPs5WvThk9AniWlxpnqkT/xtcNg==}
+
+  '@zag-js/utils@1.3.2':
+    resolution: {integrity: sha512-MyGfo7maAiHckJ/jAzyki7fRuReE5Wssu+vSd1p/hSU7IdP287uS1YiMdxkS2fujJ4A7DeOOp9mZwutwCi5QyQ==}
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -2235,14 +2244,21 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@zag-js/anatomy@0.79.0': {}
+  '@zag-js/anatomy@1.3.2': {}
 
   '@zag-js/core@0.79.0':
     dependencies:
       '@zag-js/store': 0.79.0
       '@zag-js/utils': 0.79.0
 
-  '@zag-js/dom-query@0.79.0': {}
+  '@zag-js/core@1.3.2':
+    dependencies:
+      '@zag-js/dom-query': 1.3.2
+      '@zag-js/utils': 1.3.2
+
+  '@zag-js/dom-query@1.3.2':
+    dependencies:
+      '@zag-js/types': 1.3.2
 
   '@zag-js/react@0.79.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -2261,7 +2277,13 @@ snapshots:
     dependencies:
       csstype: 3.1.3
 
+  '@zag-js/types@1.3.2':
+    dependencies:
+      csstype: 3.1.3
+
   '@zag-js/utils@0.79.0': {}
+
+  '@zag-js/utils@1.3.2': {}
 
   acorn-jsx@5.3.2(acorn@8.14.0):
     dependencies:
