@@ -6,15 +6,13 @@ import { cn } from "./lib/utils";
 import Markdown from "./components/markdown";
 
 function App() {
-  const [state, send] = useMachine(
-    scrollspy.machine({
-      id: useId(),
-      items: sections.map((section) => section.id),
-      offsetTop: 64,
-    })
-  );
+  const service = useMachine(scrollspy.machine, {
+    id: useId(),
+    items: sections.map((section) => section.id),
+    offsetTop: 64,
+  });
 
-  const api = scrollspy.connect(state, send, normalizeProps);
+  const api = scrollspy.connect(service, normalizeProps);
   return (
     <div className="min-h-screen">
       <nav className="sticky top-0 bg-white py-4 px-20 border-b border-gray-200 z-10">
@@ -97,16 +95,14 @@ function SubSection({
     content: string;
   }[];
 }) {
-  const [state, send] = useMachine(
-    scrollspy.machine({
-      id: useId(),
-      items: sections.map((section) => section.id),
-      offsetTop: 120,
-      offsetLeft: 20,
-    })
-  );
+  const service = useMachine(scrollspy.machine, {
+    id: useId(),
+    items: sections.map((section) => section.id),
+    offsetTop: 120,
+    offsetLeft: 20,
+  });
 
-  const api = scrollspy.connect(state, send, normalizeProps);
+  const api = scrollspy.connect(service, normalizeProps);
   return (
     <>
       <div className="flex gap-1 p-2 bg-white/50 rounded-lg mb-6">

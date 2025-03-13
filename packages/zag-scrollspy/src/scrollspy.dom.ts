@@ -1,3 +1,3 @@
-import { createScope } from "@zag-js/dom-query";
+import type { Scope } from "@zag-js/core";
 
-export const dom = createScope({});
+export const getContentEl = (ctx: Scope, id: string) => ctx.getById(id);

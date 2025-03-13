@@ -5,14 +5,15 @@ import * as zagScrollspy from "@zag-js/zag-scrollspy";
 import { useMachine, normalizeProps } from "@zag-js/solid";
 
 function Avatar() {
-  const [state, send] = useMachine(
-    zagScrollspy.machine({
+  const service = useMachine(
+    zagScrollspy.machine,
+    {
       id: "1",
       items: ["section1", "section2", "section3"],
-    })
+    }
   );
 
-  const api = zagScrollspy.connect(state, send, normalizeProps);
+  const api = zagScrollspy.connect(service, normalizeProps);
 
   return (
     <div>
@@ -37,14 +38,15 @@ import * as zagScrollspy from "@zag-js/zag-scrollspy";
 import { useMachine, normalizeProps } from "@zag-js/solid";
 
 function Avatar() {
-  const [state, send] = useMachine(
-    zagScrollspy.machine({
+  const service = useMachine(
+    zagScrollspy.machine,
+    {
       id: "1",
       items: ["section1", "section2", "section3"],
-    })
+    }
   );
 
-  const api = createMemo(() => zagScrollspy.connect(state, send, normalizeProps))
+  const api = createMemo(() => zagScrollspy.connect(service, normalizeProps))
 
   return (
     <div>
@@ -70,14 +72,15 @@ export const vueUsage = js`
   import { normalizeProps, useMachine } from "@zag-js/vue"
   import { computed } from "vue"
 
-  const [state, send] = useMachine(
-    zagScrollspy.machine({
+  const service = useMachine(
+    zagScrollspy.machine,
+    {
       id: "1",
       items: ["section1", "section2", "section3"],
-    })
+    }
   )
 
-  const api = computed(() => zagScrollspy.connect(state.value, send, normalizeProps))
+  const api = computed(() => zagScrollspy.connect(service, normalizeProps))
 </script>
 
 <template>
@@ -94,21 +97,21 @@ export const vueUsage = js`
 </template>
 `;
 
-
 export const svelteUsage = js`
 <script lang="ts">
   import * as zagScrollspy from "@zag-js/zag-scrollspy";
   import { normalizeProps, useMachine } from "@zag-js/svelte"
   import { computed } from "vue"
 
-  const [snapshot, send] = useMachine(
-    zagScrollspy.machine({
+  const service = useMachine(
+    zagScrollspy.machine,
+    {
       id: "1",
       items: ["section1", "section2", "section3"],
-    })
+    }
   )
 
-  const api = $derived(zagScrollspy.connect(snapshot, send, normalizeProps))
+  const api = $derived(zagScrollspy.connect(service, normalizeProps))
 </script>
 
 <div>
@@ -124,4 +127,4 @@ export const svelteUsage = js`
     <section id="section3">Section 3 Content</section>
   </main>
 </div>
-`
+`;

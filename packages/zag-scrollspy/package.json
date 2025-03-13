@@ -37,7 +37,7 @@
   "clean-package": "./clean-package.config.json",
   "dependencies": {
     "@zag-js/anatomy": "latest",
-    "@zag-js/core": "latest",
+    "@zag-js/core": "^1.3.3",
     "@zag-js/dom-query": "latest",
     "@zag-js/types": "latest",
     "@zag-js/utils": "latest",

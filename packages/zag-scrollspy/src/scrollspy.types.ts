@@ -1,4 +1,4 @@
-import type { Machine, StateMachine as S } from "@zag-js/core";
+import type { Machine, Service } from "@zag-js/core";
 import type {
   CommonProperties,
   DirectionProperty,
@@ -6,11 +6,15 @@ import type {
   RequiredBy,
 } from "@zag-js/types";
 
+/* -----------------------------------------------------------------------------
+ * Machine context
+ * -----------------------------------------------------------------------------*/
+
 export type ElementIds = Partial<{
   item(id: string): string;
 }>;
 
-interface PublicContext<V extends string>
+export interface ScrollSpyProps<V extends string = string>
   extends DirectionProperty,
     CommonProperties {
   /**
@@ -25,7 +29,7 @@ interface PublicContext<V extends string>
    * Root element for the observer.
    * https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver#options
    */
-  root: Element | Document | null;
+  getRootEl?: (() => Element | Document | null) | undefined;
   /**
    * Root margin for the observer.
    * https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver#options
@@ -60,32 +64,39 @@ interface PublicContext<V extends string>
 }
 
 interface PrivateContext<V extends string = string> {
-  // elements: Record<string, number>;
   elements: { id: V; ratio: number }[];
   activeId: V | null;
 }
-
-type ComputedContext = Readonly<{}>;
-
-export type UserDefinedContext<V extends string = string> = RequiredBy<
-  PublicContext<V>,
-  "id" | "items"
->;
-
-export interface MachineContext<V extends string = string>
-  extends PublicContext<V>,
-    PrivateContext<V>,
-    ComputedContext {}
 
 export interface MachineState {
   value: "idle";
 }
 
-export type State<V extends string> = S.State<MachineContext<V>, MachineState>;
+type PropsWithDefault =
+  | "rootMargin"
+  | "threshold"
+  | "offsetTop"
+  | "offsetLeft"
+  | "behavior"
+  | "items";
 
-export type Send = S.Send<S.AnyEventObject>;
+export interface ScrollSpySchema<V extends string = string> {
+  props: RequiredBy<ScrollSpyProps<V>, PropsWithDefault>;
+  context: PrivateContext;
+  initial: "idle";
+  action: "handleClick";
+  event: { type: "CLICK"; id: V };
+  state: "idle";
+  effect: "trackItemsPresence";
+}
 
-export type Service = Machine<MachineContext, MachineState, S.AnyEventObject>;
+export type ScrollSpyService<V extends string = string> = Service<
+  ScrollSpySchema<V>
+>;
+
+export type ScrollSpyMachine<V extends string = string> = Machine<
+  ScrollSpySchema<V>
+>;
 
 export interface ItemProps<V extends string = string> {
   id: V;
