@@ -102,7 +102,7 @@ export interface ItemProps<V extends string = string> {
   id: V;
 }
 
-export interface MachineApi<
+export interface ScrollSpyApi<
   T extends PropTypes = PropTypes,
   V extends string = string
 > {

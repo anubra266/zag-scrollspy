@@ -1,12 +1,12 @@
 import type { NormalizeProps, PropTypes } from "@zag-js/types";
-import type { ScrollSpyService, MachineApi } from "./scrollspy.types";
+import type { ScrollSpyService, ScrollSpyApi } from "./scrollspy.types";
 import { parts } from "./scrollspy.anatomy";
 import { dataAttr } from "@zag-js/dom-query";
 
 export function connect<T extends PropTypes, V extends string = string>(
   service: ScrollSpyService<V>,
   normalize: NormalizeProps<T>
-): MachineApi<T, V> {
+): ScrollSpyApi<T, V> {
   const { send, context } = service;
 
   return {
