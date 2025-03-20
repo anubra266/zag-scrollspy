@@ -53,3 +53,13 @@ pnpm add zag-scrollspy
 ## Usage
 
 Find more info in [Docs](https://anubra266.github.io/zag-scrollspy/)
+
+## Sponsors ✨
+
+Thanks goes to these wonderful people
+
+<p align="center">
+  <a href="https://patreon.com/anubra266?utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=creatorshare_creator&utm_content=join_link">
+    <img src='https://cdn.jsdelivr.net/gh/anubra266/static@main/sponsors.svg'/>
+  </a>
+</p>
